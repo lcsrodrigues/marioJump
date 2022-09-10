@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "SuperMario256";
+    src: url('/fonts/SuperMario256.ttf') format('truetype');
+}
+
+.gameBoard {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    border-bottom: 15px solid rgb(35, 160, 35);
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    font-family: "SuperMario256";
+    .pipe {
+        position: absolute;
+        bottom: 0;
+        width: 65px;
+        animation: pipe-animation 3s infinite linear;
+    }
+    .mario {
+        bottom: 0;
+        width: 150px;
+        position: absolute;
+    }
+    .clouds {
+        width: 350px;
+        position: absolute;
+        animation: clouds-animation infinite 25s linear;
+        overflow: hidden;
+    }
+    .jump {
+        animation: jump 500ms ease-out;
+    }
+    .gameOver {
+        width: 80px!important;
+        margin-left: 50px;
+    }
+    .gameOverScreen {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        position: absolute;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        align-self: center;
+        span {
+            font-size: 22px;
+            color: #BD1C06;
+            cursor: pointer;
+            &:first-child {
+                color: #000;
+                font-size: 52px;
+                -webkit-text-stroke: 2px #fff;
+            }
+        }
+    }
+}
+
+@keyframes clouds-animation {
+    0% {
+        right: 0;
+    }
+    25% {
+        right: 50%;
+    }
+    50% {
+        right: 100%;
+    }
+    75% {
+        right: 50%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes pipe-animation {
+    from {
+        right: 0px;
+    }
+    to {
+        right: 100%
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+    30% {
+        bottom: 230px;
+    }
+    40% {
+        bottom: 240px;
+    }
+    50% {
+        bottom: 250px;
+    }
+    60% {
+        bottom: 240px;
+    }
+    70% {
+        bottom: 230px;
+    }
+    100% {
+        bottom: 0;
+    }
+}
